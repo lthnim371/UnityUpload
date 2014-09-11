@@ -1,0 +1,29 @@
+this.gameObject.activeSelf		자신이 붙어있는 게임오브젝트가 활성화 되었는지 비활성화 되었는지 확인한다.
+
+this.gameObject.SetActive(true);		//자신이 붙어있는 게임오브젝트를 활성화 시켜라....
+this.gameObject.SetActive(false);		//자신이 붙어있는 게임오브젝트를 비활성화 시켜라....
+
+
+this.enabled					자신의 컴포넌트가 비활성화 되어있는지 활성화 되어있는지 확인한다.
+
+this.enabled = false;					 //자신의 컴포넌트를 비활성화 시켜라.
+this.enabled = true;					 //자신의 컴포넌트를 활성화 시켜라.
+
+
+
+//Input Axis 에 등록된 "Horizontal" 셋팅 값을 -1 에서 1 사이값으로 가져온다.
+//Default :
+//a 키, 왼쪽화살표 = -1
+//d 키, 오른쪽화살표 = 1
+float inputH = Input.GetAxis("Horizontal");
+
+//Input Axis 에 등록된 "Vertical" 셋팅 값을 -1 에서 1 사이값으로 가져온다.
+//Default :
+//w 키, 위쪽화살표 = 1
+//s 키, 아래쪽화살표 = -1
+float inputV = Input.GetAxis("Vertical");
+
+//위와 같은 Axis 셋팅은 Edit->Project Setting->Input 에서 설정 할수 있다.
+//Gravity		키를 뗏을때 0으로 되돌아가는 속도가 빨라진다.
+//Sensitivity	키를 눌렀을때 증가되는 속도가 빨라진다.
+//DeadZone		아날로그 조이스틱 사용시 이값 이하도 들어오면 무시

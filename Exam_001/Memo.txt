@@ -1,0 +1,241 @@
+
+Mathf.Clamp( A, B, C );
+A 가 B 보다 작은경우 B 가 리턴되고
+A 가 C 보다 큰경우 C 가 리턴된다.
+그외에는 그냥 A 가 리턴된다.
+
+Mathf.Clamp01( A );
+A 가 0 보다 작은경우 0 리턴되고
+A 가 1 보다 큰경우 1 리턴된다.
+그외에는 그냥 A 가 리턴된다.
+
+
+Screen.width
+현제 게임의 가로 해상도를 얻는다.
+
+Screen.height
+현재 게임의 세로 해상도를 얻는다.
+
+
+Input.mousePosition
+마우스 위치값을 Vector3 로 알수 있다.
+여기에 X 가 마우스 화면상에 X 값을 의미하고
+Y 가 마우스 화면상에 Y 값을 의미하는데 
+화면의 좌하단이 0, 0 이다.
+
+  (0,H)----------------(W,H)
+    |                    |
+	|                    |
+	|                    |
+	|                    |
+  (0,0)----------------(W,0)
+
+
+
+
+
+
+
+
+this.gameObject
+MonoBehaviour 를 상속받은 클래스에서
+자신이 붙어있는 게임오브젝트에 접근을 한다.
+
+this.gameObject.GetComponent<타입>()
+자신이 붙어있는 게임오브젝트의 컴포넌트중 <>안 타입의 컴포넌트 인스턴스를 얻어온다.
+이때 해당 타입의 컴포넌트가 붙어있지 않으면 null 이 리턴된다.
+
+this.GetComponent<타입>()
+위와 동일하다 다만 gameObject 생략이 가능한것뿐이다.
+
+
+this.gameObject.GetComponents<타입>()
+자신이 붙어있는 게임오브젝트의 컴포넌트중 <>안 타입의 컴포넌트 인스턴스 가 다수로 붙어있는 경우 모두 배열로 얻어온다.
+이때 해당 타입의 컴포넌트가 붙어있지 않으면 null 이 리턴되지 않고 0 길이의 배열이 리턴된다.
+
+this.GetComponents<타입>()
+위와 동일하다 다만 gameObject 생략이 가능한것뿐이다.
+
+
+this.gameObject.GetComponentInChildren<타입>()
+자신이 붙어있는 게임오브젝트 뿐만아니라 계층구조에서 나포함 내자식오브젝트까지 
+싹다 검사하여 게임오브젝트들에 붙어있는 <타입> 컴포넌트를 하나만 가져온다.
+없다면 null 리턴 된다.
+
+this.GetComponentInChildren<타입>()
+위와 동일하다 다만 gameObject 생략이 가능한것뿐이다.
+
+
+this.gameObject.GetComponentsInChildren<타입>();
+자신이 붙어있는 게임오브젝트 뿐만아니라 계층구조에서 나포함 내자식오브젝트까지 
+싹다 검사하여 게임오브젝트들에 붙어있는 <타입> 컴포넌트를 배열로 싹다 가져온다.
+
+this.GetComponentsInChildren<타입>();
+위와 동일하다 다만 gameObject 생략이 가능한것뿐이다.
+
+
+
+
+Destroy( GameObject )
+특정 오브젝트를 소멸시켜준다.
+주의 할점을 바로 소멸되지 않는다. 해당 업데이트 프레임이 지난후에 소멸되어있다.
+즉 저명령이 들어온 플레이까지는 살아있다.
+
+
+Input.GetMouseButton( 번호 )		//번호 0 이면 마우스좌, 1 이면 마우스우, 2 이면 마우스 휠버튼
+마우스 버튼을 누르고 있을때 
+
+Input.GetMouseButtonDown( 번호 )	//번호 0 이면 마우스좌, 1 이면 마우스우, 2 이면 마우스 휠버튼
+마우스 버튼을 누를때 한번
+
+Input.GetMouseButtonUp( 번호 )		//번호 0 이면 마우스좌, 1 이면 마우스우, 2 이면 마우스 휠버튼
+마우스 버튼을 눌렀다 뗏을때 한번
+
+
+//
+// Vector3 관련함수
+//
+Vector3 vec = new Vector3( 1, 1, 1 );		
+
+//인스턴스 맴버함수
+vec.Normalize();			//vec 스스로를 정규화시킨다.
+vec.normalized				//vec 가 정규화된 벡터를 얻는다.
+vec.magnitude				//vec 의 길이를 얻는다. ( 내부적으로 sqrt 연산이 들어간다 )
+vec.sqrMagnitude			//vec 의 길이의 제곱을 얻는다. ( 내부적으로 sqrt 연산을 안한다 )
+
+//참고로 sqrt 안할수있음 안하는게 좋다.
+//때문에 단순히 벡터끼리 규모 비교를 할때 magnitude 보단 sqrMagnitude 로 비교하는 것이 효과적이다.
+
+
+//Vector3 static 함수
+
+Vector3.Distance( A, B )			//A 벡터와 B 벡터의 거리를 구한다.
+Vector3.Angle( A, B )				//A 벡터와 B 벡터의 각도를 구한다. ( Degree ?? Radian )
+
+Vector3.Cross( A, B )				//A 벡터와 B 벡터의 외적을 구한다.
+Vector3.Dot( A, B )					//A 벡터와 B 벡터의 내적을 구한다.
+
+Vector3.Relfect( A, B )				//A 벡터를 B 벡터의 방향으로 정반사된 벡터를 구한다,
+Vector3.Project( A, B )				//A 벡터를 B 벡터방향으로 투영시킨 투영 벡터를 얻는다.
+
+
+
+Vector3.lerp( A, B, t );
+A 와 B 벡터의 t 값에 의한 선형보간 결과값을 Vector3로 리턴한다.
+t 값은 0 ~ 1 사이의 값만 들어갈수 있는데...
+t 값이 0 일수록 A 값에 가까운 벡터가 나오고
+t 값이 1 일수록 B 값에 가까운 벡터가 나온다.
+보통 벡터의 선형보간은 위치 벡터에 사용한다.
+
+
+Vector3.slerp( A, B, t );
+A 와 B 벡터의 t 값에 의한 구면보간 결과값을 Vector3 로 리턴한다.
+t 값은 0 ~ 1 사이의 값만 들어갈수 있는데...
+t 값이 0 일수록 A 의 방향과 가까운 벡터가 나오고
+t 값이 1 일수록 B 의 방향과 가까운 벡터가 나온다.
+보통 벡터의 구면보간은 방향 벡터에 사용한다.
+
+
+//Vector3 static 맴버 상수
+
+Vector3.zero	 Vector3( 0, 0, 0 ) 벡터가 참조된다.
+Vector3.right	 Vector3( 1, 0, 0 ) 벡터가 참조된다.
+Vector3.left	 Vector3( -1, 0, 0 ) 벡터가 참조된다.
+Vector3.up		 Vector3( 0, 1, 0 ) 벡터가 참조된다.
+Vector3.down	 Vector3( 0, -1, 0 ) 벡터가 참조된다.
+Vector3.front	 Vector3( 0, 0, 1 ) 벡터가 참조된다.
+Vector3.back	 Vector3( 0, 0,-1 ) 벡터가 참조된다.
+
+
+//
+// Quaternion 관련함수 ( 사원수 어렵게 생각하지말고 그냥 회전행렬이라고 생각하자 )
+//
+
+Quaternion.LookRotation( A );			//A 는 방향벡터인데 A 의 방향으 바라보는 사원수를 리턴한다.
+Quaternion.LookRotation( A, B );		//A 와 B 는 방향벡터인데  A 의 방향으 바라보되 상방기준이 B 방향인 사원수를 리턴한다.
+
+Quaternion.Euler( x, y, z );			//x, y, z 회전량을 지닌 회전 사원수를 리턴한다 ( 오일러 앤글처럼 사용하지만 짐벌락이 어느정도 회피되는 회전 값이다 )
+
+Quaternion.AngleAxis( 각도, 축벡터 );	//축벡터를 기준으로 각도만큼 회전하는 사원수를 리턴한다.
+
+
+Quaternion.lerp( A, B, t );
+A 와 B 사원수의 t 값에 의한 선형보간 회전 결과값을 Quaternion 으로 리턴한다.
+사원수가 회전에대한 정보인데 이 선형보간의 결과 값은 정확한 회전값이 나올수 없다.
+
+Quaternion.slerp( A, B, t );
+A 와 B 사원수의 t 값에 의한 구면보간 회전 결과값을 Quaternion 으로 리턴한다.
+t 값은 0 ~ 1 사이의 값만 들어갈수 있는데...
+t 값이 0 일수록 A 의 회전 값이 나오고
+t 값이 1 일수록 B 의 회전 값이 나온다.
+
+
+Invoke( "자신의 맴버함수 이름", 초 );		//초뒤에 "자신의 맴버함수 이름" 함수가 실행된다.
+
+
+//사원수와 사원수끼리 곱하면 회전성분이 곱해진 새로운 사원수가 나온다.
+A 사원수 * B 사원수 = A 사원수 회전에 B 사원수 회전이 적용된 사원수...
+A 회전행렬 * B 회전행렬 = A 회전행렬 회전에 B 회전행렬 회전이 적용된 회전행렬...
+
+
+
+
+this.transform.forward			//자신의 트랜스폼 월드 정면방향 벡터를 얻는다.
+this.transform.right			//자신의 트랜스폼 월드 우측방향 벡터를 얻는다.
+this.transform.up				//자신의 트랜스폼 월드 상방방향 벡터를 얻는다.
+
+
+
+//내직속자식중 " "안의 이름을 가진 게임오브젝트의 Transform 을 찾아온다 없으면 NULL 리턴
+this.transform.FindChild("게임오브젝트이름");
+
+//주의 할건 나의 직속 자식만 가져온다. 예를 들어 자식1의 자식2을 가지고 온다면 다음과 같이 써야 한다.
+//this.transform.FindChild("자식1").FindChild("자식2");
+//this.transform.FindChild("자식1/자식2");
+
+
+//씬에 배치된 게임오브젝트 중에 "PlayerPlane" 이름의 게임오브젝틀 찾고 
+//없다면 Null 이 리턴된다.
+//여러게 있다면 그중하나다..... ( 무거우니 사용을 지양하자... )
+GameObject.Find("PlayerPlane");
+
+
+//씬에 배치된 게임오브제트 중 "태그명" Tag 명을 지닌 게임오브젝트를 찾아 리턴
+//없다면 null 이 리턴된다.
+GameObject.FindGameObjectWithTag("태그명");
+
+
+//씬에 배치된 게임오브제트 중 "태그명" Tag 명을 지닌 게임오브젝트를 싸다 찾아 배열로 리턴
+//없다면 0 배열이 리턴...
+GameObject.FindGameObjectsWithTag("태그명");
+
+
+
+
+//
+// 내적의 특징 ( 중요 )
+//
+
+Vector3.Dot( A, B )			
+
+//결과 값은 항상 스칼라이다.
+
+//교환 법칙이 성립된다.
+
+//결과 값이 음수면 A 와 B 벡터의 각도 차는 둔각이다.
+
+//결과 값이 양수면 A 와 B 벡터의 각도 차는 예각이다.
+
+//결과 같이 0 이면 A 와 B 벡터는 직각 이다.
+
+//만약 A 와 B 벡터가 둘 다 정규화 되어있다면 내적의 결과 값은 
+//두벡터 각도 차에 의한 Cos 결과 값이 (-1 ~ 1 )사이의 범위로 나온다.
+
+//그래서 정규화된 벡터 A B 의 각도 차를 구하는 것은 다음과 같다.
+//Mathf.Acos( Vector3.Dot( A, B ) )  <= ( 0 ~ 180 )각도차가 라디안으로 나온다.
+
+//만약 A 정규화 되어있고 B 가 정규화 되어있지 않다면
+//정규화 되지 않는 B 벡터를 A 벡터 방향으로 투영한 투영벡터의 길이가 나온다.
+
+//만약 B 정규화 되어있고 A 가 정규화 되어있지 않다면
+//정규화 되지 않는 A 벡터를 B 벡터 방향으로 투영한 투영벡터의 길이가 나온다.
