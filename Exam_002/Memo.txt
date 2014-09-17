@@ -10,7 +10,6 @@ this.enabled = false;					 //자신의 컴포넌트를 비활성화 시켜라.
 this.enabled = true;					 //자신의 컴포넌트를 활성화 시켜라.
 
 
-
 //Input Axis 에 등록된 "Horizontal" 셋팅 값을 -1 에서 1 사이값으로 가져온다.
 //Default :
 //a 키, 왼쪽화살표 = -1
@@ -27,3 +26,59 @@ float inputV = Input.GetAxis("Vertical");
 //Gravity		키를 뗏을때 0으로 되돌아가는 속도가 빨라진다.
 //Sensitivity	키를 눌렀을때 증가되는 속도가 빨라진다.
 //DeadZone		아날로그 조이스틱 사용시 이값 이하도 들어오면 무시
+
+//사원수와 사원수끼리 곱하면
+//Quaternion a;
+//Quaternion b;
+ a 사원수회전량에 b 사원수 회전을 적용한 새로운 사원수 = a * b;
+
+//사원수와 벡터끼리 곱하면
+//Vector3 vec;
+//Quaternion rot;
+결과 = vec * rot;			//에러
+vec 에 rot 회전을 먹인 새로운 벡터 = rot * vec;			//Ok;
+
+
+
+
+//코루틴 함수 형태
+IEnumerator 함수이름()
+{
+	yield return new WaitForSecond( 기다릴초 );
+
+
+	//기다릴초 시간뒤에 실행
+}
+
+
+//코루틴 함수를 실행하는 법
+StartCoroutine( "함수이름" );		//실행시킬 함수를 문자열로 실행
+StartCoroutine( 함수이름() );		//실행시킬 함수를 직접 실행 ( StopCoroutine 사용불가 )
+
+//코루틴 함수를 중지 시키는법
+StopCoroutine( "함수이름" );		//단 이게 중지가 가능하려면 실행시킬때 문자열로 실행해야함
+StopAllCoroutine();					//실행중인 코루틴 싹다 중지
+
+//코루틴 리턴 예
+yield return null;  //다음 업데이트까지대기
+yield return new WaitForFixedUpdate();      //다음 FixedUpdate 주기까지 대기
+yield return new WaitForEndOfFrame();       //현재프래임의 랜더링 한장면 끈난뒤 까지 대기 ( 스크린샷 만들대 필요 )
+
+
+yield break;        //코루틴 함수를 종료할때 리턴대신 사용
+
+
+
+//부모에 접근
+this.transform.parent			//자신의 바로 윗부모 Transform 에 접근한다 ( 만약 부모가 없다면 null 이 리턴된다 )
+
+
+//"게임오브젝트 이름"으로 빈게임오브젝트가 씬에 배치되고
+//배치된 게임오브젝트를 newGameObject 가 참조한다.
+//이때 Transform 은 초기화되어있다.
+GameObject newGameObject = new GameObject( "게임오브젝트 이름" );
+
+
+//gameObject 에 컴포넌트를 붙이고 붙은 컴포넌트 인스턴스를 리턴한다. ( 반드시 gameObject 에 접근해서 사용 )
+gameObject.AddComponent<컴포넌트명>();
+
