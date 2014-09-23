@@ -13,13 +13,32 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+
+	}
+
+    void OnEnable()
+    {
+
         //이동속도 와 이동거리 대비 몇초뒤에 파괴되는지
         float destroyTime = this.moveDistance / this.moveSpeed;
-        Destroy(this.gameObject, destroyTime);  //destroyTime 초뒤에 파괴된다.
-        
+
+        //풀링으로 사용될 게임오브젝트는 게임이 종료 될때 까지 절대로 파괴되지 않는다.
+        //Destroy(this.gameObject, destroyTime);  //destroyTime 초뒤에 파괴된다.
         //Destroy(this.gameObject, 3.0f );    //3.0 초뒤에 파괴된다.
-	
-	}
+
+
+        //파괴 대신에 비활성화 시킨다.
+        Invoke("BulletDisable", destroyTime);
+    }
+
+    //뷸렛 비활성화
+    void BulletDisable()
+    {
+        this.gameObject.SetActive(false);     
+    }
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,26 +48,5 @@ public class Bullet : MonoBehaviour {
 	
 	}
 
-    //뷸렛이 나와 다를 오브젝트와 충돌하였다면..
-    void OnTriggerEnter(Collider col)
-    {
-        //같은 종족의 Tag 라면...
-        if (this.gameObject.tag.CompareTo(col.gameObject.tag) == 0)
-            return;
-
-        //다른 종족
-        Hull hull = col.gameObject.GetComponent<Hull>();
-
-        //내구도 개념이 있는 놈이라면...
-        if (hull != null )
-        {
-            hull.HaveDamage(this.damage);
-
-            //나도 죽는다
-            Destroy(this.gameObject);
-        }
-
-
-
-    }
+    
 }

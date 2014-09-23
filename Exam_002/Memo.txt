@@ -1,84 +1,84 @@
-ï»¿this.gameObject.activeSelf		ìžì‹ ì´ ë¶™ì–´ìžˆëŠ” ê²Œìž„ì˜¤ë¸Œì íŠ¸ê°€ í™œì„±í™” ë˜ì—ˆëŠ”ì§€ ë¹„í™œì„±í™” ë˜ì—ˆëŠ”ì§€ í™•ì¸í•œë‹¤.
+this.gameObject.activeSelf		ÀÚ½ÅÀÌ ºÙ¾îÀÖ´Â °ÔÀÓ¿ÀºêÁ§Æ®°¡ È°¼ºÈ­ µÇ¾ú´ÂÁö ºñÈ°¼ºÈ­ µÇ¾ú´ÂÁö È®ÀÎÇÑ´Ù.
 
-this.gameObject.SetActive(true);		//ìžì‹ ì´ ë¶™ì–´ìžˆëŠ” ê²Œìž„ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™” ì‹œì¼œë¼....
-this.gameObject.SetActive(false);		//ìžì‹ ì´ ë¶™ì–´ìžˆëŠ” ê²Œìž„ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™” ì‹œì¼œë¼....
-
-
-this.enabled					ìžì‹ ì˜ ì»´í¬ë„ŒíŠ¸ê°€ ë¹„í™œì„±í™” ë˜ì–´ìžˆëŠ”ì§€ í™œì„±í™” ë˜ì–´ìžˆëŠ”ì§€ í™•ì¸í•œë‹¤.
-
-this.enabled = false;					 //ìžì‹ ì˜ ì»´í¬ë„ŒíŠ¸ë¥¼ ë¹„í™œì„±í™” ì‹œì¼œë¼.
-this.enabled = true;					 //ìžì‹ ì˜ ì»´í¬ë„ŒíŠ¸ë¥¼ í™œì„±í™” ì‹œì¼œë¼.
+this.gameObject.SetActive(true);		//ÀÚ½ÅÀÌ ºÙ¾îÀÖ´Â °ÔÀÓ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ ½ÃÄÑ¶ó....
+this.gameObject.SetActive(false);		//ÀÚ½ÅÀÌ ºÙ¾îÀÖ´Â °ÔÀÓ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­ ½ÃÄÑ¶ó....
 
 
-//Input Axis ì— ë“±ë¡ëœ "Horizontal" ì…‹íŒ… ê°’ì„ -1 ì—ì„œ 1 ì‚¬ì´ê°’ìœ¼ë¡œ ê°€ì ¸ì˜¨ë‹¤.
+this.enabled					ÀÚ½ÅÀÇ ÄÄÆ÷³ÍÆ®°¡ ºñÈ°¼ºÈ­ µÇ¾îÀÖ´ÂÁö È°¼ºÈ­ µÇ¾îÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
+
+this.enabled = false;					 //ÀÚ½ÅÀÇ ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ ½ÃÄÑ¶ó.
+this.enabled = true;					 //ÀÚ½ÅÀÇ ÄÄÆ÷³ÍÆ®¸¦ È°¼ºÈ­ ½ÃÄÑ¶ó.
+
+
+//Input Axis ¿¡ µî·ÏµÈ "Horizontal" ¼ÂÆÃ °ªÀ» -1 ¿¡¼­ 1 »çÀÌ°ªÀ¸·Î °¡Á®¿Â´Ù.
 //Default :
-//a í‚¤, ì™¼ìª½í™”ì‚´í‘œ = -1
-//d í‚¤, ì˜¤ë¥¸ìª½í™”ì‚´í‘œ = 1
+//a Å°, ¿ÞÂÊÈ­»ìÇ¥ = -1
+//d Å°, ¿À¸¥ÂÊÈ­»ìÇ¥ = 1
 float inputH = Input.GetAxis("Horizontal");
 
-//Input Axis ì— ë“±ë¡ëœ "Vertical" ì…‹íŒ… ê°’ì„ -1 ì—ì„œ 1 ì‚¬ì´ê°’ìœ¼ë¡œ ê°€ì ¸ì˜¨ë‹¤.
+//Input Axis ¿¡ µî·ÏµÈ "Vertical" ¼ÂÆÃ °ªÀ» -1 ¿¡¼­ 1 »çÀÌ°ªÀ¸·Î °¡Á®¿Â´Ù.
 //Default :
-//w í‚¤, ìœ„ìª½í™”ì‚´í‘œ = 1
-//s í‚¤, ì•„ëž˜ìª½í™”ì‚´í‘œ = -1
+//w Å°, À§ÂÊÈ­»ìÇ¥ = 1
+//s Å°, ¾Æ·¡ÂÊÈ­»ìÇ¥ = -1
 float inputV = Input.GetAxis("Vertical");
 
-//ìœ„ì™€ ê°™ì€ Axis ì…‹íŒ…ì€ Edit->Project Setting->Input ì—ì„œ ì„¤ì • í• ìˆ˜ ìžˆë‹¤.
-//Gravity		í‚¤ë¥¼ ë—ì„ë•Œ 0ìœ¼ë¡œ ë˜ëŒì•„ê°€ëŠ” ì†ë„ê°€ ë¹¨ë¼ì§„ë‹¤.
-//Sensitivity	í‚¤ë¥¼ ëˆŒë €ì„ë•Œ ì¦ê°€ë˜ëŠ” ì†ë„ê°€ ë¹¨ë¼ì§„ë‹¤.
-//DeadZone		ì•„ë‚ ë¡œê·¸ ì¡°ì´ìŠ¤í‹± ì‚¬ìš©ì‹œ ì´ê°’ ì´í•˜ë„ ë“¤ì–´ì˜¤ë©´ ë¬´ì‹œ
+//À§¿Í °°Àº Axis ¼ÂÆÃÀº Edit->Project Setting->Input ¿¡¼­ ¼³Á¤ ÇÒ¼ö ÀÖ´Ù.
+//Gravity		Å°¸¦ ¶ÂÀ»¶§ 0À¸·Î µÇµ¹¾Æ°¡´Â ¼Óµµ°¡ »¡¶óÁø´Ù.
+//Sensitivity	Å°¸¦ ´­·¶À»¶§ Áõ°¡µÇ´Â ¼Óµµ°¡ »¡¶óÁø´Ù.
+//DeadZone		¾Æ³¯·Î±× Á¶ÀÌ½ºÆ½ »ç¿ë½Ã ÀÌ°ª ÀÌÇÏµµ µé¾î¿À¸é ¹«½Ã
 
-//ì‚¬ì›ìˆ˜ì™€ ì‚¬ì›ìˆ˜ë¼ë¦¬ ê³±í•˜ë©´
+//»ç¿ø¼ö¿Í »ç¿ø¼ö³¢¸® °öÇÏ¸é
 //Quaternion a;
 //Quaternion b;
- a ì‚¬ì›ìˆ˜íšŒì „ëŸ‰ì— b ì‚¬ì›ìˆ˜ íšŒì „ì„ ì ìš©í•œ ìƒˆë¡œìš´ ì‚¬ì›ìˆ˜ = a * b;
+ a »ç¿ø¼öÈ¸Àü·®¿¡ b »ç¿ø¼ö È¸ÀüÀ» Àû¿ëÇÑ »õ·Î¿î »ç¿ø¼ö = a * b;
 
-//ì‚¬ì›ìˆ˜ì™€ ë²¡í„°ë¼ë¦¬ ê³±í•˜ë©´
+//»ç¿ø¼ö¿Í º¤ÅÍ³¢¸® °öÇÏ¸é
 //Vector3 vec;
 //Quaternion rot;
-ê²°ê³¼ = vec * rot;			//ì—ëŸ¬
-vec ì— rot íšŒì „ì„ ë¨¹ì¸ ìƒˆë¡œìš´ ë²¡í„° = rot * vec;			//Ok;
+°á°ú = vec * rot;			//¿¡·¯
+vec ¿¡ rot È¸ÀüÀ» ¸ÔÀÎ »õ·Î¿î º¤ÅÍ = rot * vec;			//Ok;
 
 
 
 
-//ì½”ë£¨í‹´ í•¨ìˆ˜ í˜•íƒœ
-IEnumerator í•¨ìˆ˜ì´ë¦„()
+//ÄÚ·çÆ¾ ÇÔ¼ö ÇüÅÂ
+IEnumerator ÇÔ¼öÀÌ¸§()
 {
-	yield return new WaitForSecond( ê¸°ë‹¤ë¦´ì´ˆ );
+	yield return new WaitForSecond( ±â´Ù¸±ÃÊ );
 
 
-	//ê¸°ë‹¤ë¦´ì´ˆ ì‹œê°„ë’¤ì— ì‹¤í–‰
+	//±â´Ù¸±ÃÊ ½Ã°£µÚ¿¡ ½ÇÇà
 }
 
 
-//ì½”ë£¨í‹´ í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•˜ëŠ” ë²•
-StartCoroutine( "í•¨ìˆ˜ì´ë¦„" );		//ì‹¤í–‰ì‹œí‚¬ í•¨ìˆ˜ë¥¼ ë¬¸ìžì—´ë¡œ ì‹¤í–‰
-StartCoroutine( í•¨ìˆ˜ì´ë¦„() );		//ì‹¤í–‰ì‹œí‚¬ í•¨ìˆ˜ë¥¼ ì§ì ‘ ì‹¤í–‰ ( StopCoroutine ì‚¬ìš©ë¶ˆê°€ )
+//ÄÚ·çÆ¾ ÇÔ¼ö¸¦ ½ÇÇàÇÏ´Â ¹ý
+StartCoroutine( "ÇÔ¼öÀÌ¸§" );		//½ÇÇà½ÃÅ³ ÇÔ¼ö¸¦ ¹®ÀÚ¿­·Î ½ÇÇà
+StartCoroutine( ÇÔ¼öÀÌ¸§() );		//½ÇÇà½ÃÅ³ ÇÔ¼ö¸¦ Á÷Á¢ ½ÇÇà ( StopCoroutine »ç¿ëºÒ°¡ )
 
-//ì½”ë£¨í‹´ í•¨ìˆ˜ë¥¼ ì¤‘ì§€ ì‹œí‚¤ëŠ”ë²•
-StopCoroutine( "í•¨ìˆ˜ì´ë¦„" );		//ë‹¨ ì´ê²Œ ì¤‘ì§€ê°€ ê°€ëŠ¥í•˜ë ¤ë©´ ì‹¤í–‰ì‹œí‚¬ë•Œ ë¬¸ìžì—´ë¡œ ì‹¤í–‰í•´ì•¼í•¨
-StopAllCoroutine();					//ì‹¤í–‰ì¤‘ì¸ ì½”ë£¨í‹´ ì‹¹ë‹¤ ì¤‘ì§€
+//ÄÚ·çÆ¾ ÇÔ¼ö¸¦ ÁßÁö ½ÃÅ°´Â¹ý
+StopCoroutine( "ÇÔ¼öÀÌ¸§" );		//´Ü ÀÌ°Ô ÁßÁö°¡ °¡´ÉÇÏ·Á¸é ½ÇÇà½ÃÅ³¶§ ¹®ÀÚ¿­·Î ½ÇÇàÇØ¾ßÇÔ
+StopAllCoroutine();					//½ÇÇàÁßÀÎ ÄÚ·çÆ¾ ½Ï´Ù ÁßÁö
 
-//ì½”ë£¨í‹´ ë¦¬í„´ ì˜ˆ
-yield return null;  //ë‹¤ìŒ ì—…ë°ì´íŠ¸ê¹Œì§€ëŒ€ê¸°
-yield return new WaitForFixedUpdate();      //ë‹¤ìŒ FixedUpdate ì£¼ê¸°ê¹Œì§€ ëŒ€ê¸°
-yield return new WaitForEndOfFrame();       //í˜„ìž¬í”„ëž˜ìž„ì˜ ëžœë”ë§ í•œìž¥ë©´ ëˆë‚œë’¤ ê¹Œì§€ ëŒ€ê¸° ( ìŠ¤í¬ë¦°ìƒ· ë§Œë“¤ëŒ€ í•„ìš” )
-
-
-yield break;        //ì½”ë£¨í‹´ í•¨ìˆ˜ë¥¼ ì¢…ë£Œí• ë•Œ ë¦¬í„´ëŒ€ì‹  ì‚¬ìš©
+//ÄÚ·çÆ¾ ¸®ÅÏ ¿¹
+yield return null;  //´ÙÀ½ ¾÷µ¥ÀÌÆ®±îÁö´ë±â
+yield return new WaitForFixedUpdate();      //´ÙÀ½ FixedUpdate ÁÖ±â±îÁö ´ë±â
+yield return new WaitForEndOfFrame();       //ÇöÀçÇÁ·¡ÀÓÀÇ ·£´õ¸µ ÇÑÀå¸é ²ö³­µÚ ±îÁö ´ë±â ( ½ºÅ©¸°¼¦ ¸¸µé´ë ÇÊ¿ä )
 
 
+yield break;        //ÄÚ·çÆ¾ ÇÔ¼ö¸¦ Á¾·áÇÒ¶§ ¸®ÅÏ´ë½Å »ç¿ë
 
-//ë¶€ëª¨ì— ì ‘ê·¼
-this.transform.parent			//ìžì‹ ì˜ ë°”ë¡œ ìœ—ë¶€ëª¨ Transform ì— ì ‘ê·¼í•œë‹¤ ( ë§Œì•½ ë¶€ëª¨ê°€ ì—†ë‹¤ë©´ null ì´ ë¦¬í„´ëœë‹¤ )
-
-
-//"ê²Œìž„ì˜¤ë¸Œì íŠ¸ ì´ë¦„"ìœ¼ë¡œ ë¹ˆê²Œìž„ì˜¤ë¸Œì íŠ¸ê°€ ì”¬ì— ë°°ì¹˜ë˜ê³ 
-//ë°°ì¹˜ëœ ê²Œìž„ì˜¤ë¸Œì íŠ¸ë¥¼ newGameObject ê°€ ì°¸ì¡°í•œë‹¤.
-//ì´ë•Œ Transform ì€ ì´ˆê¸°í™”ë˜ì–´ìžˆë‹¤.
-GameObject newGameObject = new GameObject( "ê²Œìž„ì˜¤ë¸Œì íŠ¸ ì´ë¦„" );
+//ºÎ¸ð¿¡ Á¢±Ù
+this.transform.parent			//ÀÚ½ÅÀÇ ¹Ù·Î À­ºÎ¸ð Transform ¿¡ Á¢±ÙÇÑ´Ù ( ¸¸¾à ºÎ¸ð°¡ ¾ø´Ù¸é null ÀÌ ¸®ÅÏµÈ´Ù )
 
 
-//gameObject ì— ì»´í¬ë„ŒíŠ¸ë¥¼ ë¶™ì´ê³  ë¶™ì€ ì»´í¬ë„ŒíŠ¸ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë¦¬í„´í•œë‹¤. ( ë°˜ë“œì‹œ gameObject ì— ì ‘ê·¼í•´ì„œ ì‚¬ìš© )
-gameObject.AddComponent<ì»´í¬ë„ŒíŠ¸ëª…>();
+//"°ÔÀÓ¿ÀºêÁ§Æ® ÀÌ¸§"À¸·Î ºó°ÔÀÓ¿ÀºêÁ§Æ®°¡ ¾À¿¡ ¹èÄ¡µÇ°í
+//¹èÄ¡µÈ °ÔÀÓ¿ÀºêÁ§Æ®¸¦ newGameObject °¡ ÂüÁ¶ÇÑ´Ù.
+//ÀÌ¶§ Transform Àº ÃÊ±âÈ­µÇ¾îÀÖ´Ù.
+GameObject newGameObject = new GameObject( "°ÔÀÓ¿ÀºêÁ§Æ® ÀÌ¸§" );
 
+
+//gameObject ¿¡ ÄÄÆ÷³ÍÆ®¸¦ ºÙÀÌ°í ºÙÀº ÄÄÆ÷³ÍÆ® ÀÎ½ºÅÏ½º¸¦ ¸®ÅÏÇÑ´Ù. ( ¹Ýµå½Ã gameObject ¿¡ Á¢±ÙÇØ¼­ »ç¿ë )
+gameObject.AddComponent<ÄÄÆ÷³ÍÆ®¸í>();
+
+//"·¹ÀÌ¾îÀÌ¸§" À¸·Î ·¹ÀÌ¾î ¹øÈ£¸¦ ¾Ë¾Æ³½´Ù.
+LayerMask.NameToLayer("·¹ÀÌ¾îÀÌ¸§")

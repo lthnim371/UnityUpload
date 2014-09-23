@@ -2,11 +2,15 @@
 using System.Collections;
 
 
-//추상 클래스는 인스턴스화 될수 없기 때문에 
-//게임오브젝트 컴포넌트로도 붙일수 없다.
-public abstract class Gun : MonoBehaviour {
+public class Gun : MonoBehaviour {
 
-    public GameObject srcbullet;            //뷸렛 원본 프리펩
+    //public GameObject srcbullet;            //뷸렛 원본 프리펩
+    //public GameObjectPool bulletPool;           //뷸렛 풀
+
+
+    public string bulletName;                   //뷸렛이름
+
+
     public float firePerSec = 10.0f;        //초당 발사속도
 
     public float powerLevel = 1;            //파워 레벨
@@ -21,6 +25,9 @@ public abstract class Gun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKey(KeyCode.Space))
+            this.Fire();
 	
 	}
 
@@ -37,8 +44,11 @@ public abstract class Gun : MonoBehaviour {
         Invoke("ReFireReady", 1.0f / this.firePerSec);
     }
 
-    //추상함수
-    protected abstract void FireProcess();
+
+    void FireProcess()
+    {
+        CreateBullet(this.transform.position, this.transform.rotation);
+    }
    
 
     void ReFireReady()
@@ -50,11 +60,21 @@ public abstract class Gun : MonoBehaviour {
     //뷸렛 생성
     protected void CreateBullet(Vector3 position, Quaternion rotation)
     {
+        /*
         //만들어진 뷸렛이 참조된다....
         GameObject newBulletObject = Instantiate(
                 this.srcbullet,
                 position,
-                rotation) as GameObject;
+                rotation) as GameObject;*/
+
+
+        //뷸렛풀에서 하나 활성화 하고 활성화된 놈 참조됨
+        GameObject newBulletObject = 
+            GameObjectPoolManager.Instance[ this.bulletName ].ActiveObject( position, rotation );
+
+        if (newBulletObject == null) return;
+
+
 
         //자신의 최상위 부모 Transform 에 접근한다.
         Transform root = this.transform;
@@ -68,9 +88,7 @@ public abstract class Gun : MonoBehaviour {
 
         //생성된 게임오브젝트에 레이어를 부여하는 방법
         //newBulletObject.layer = 8;          
-
-
-        newBulletObject.layer = LayerMask.NameToLayer("Bullet");
+        //newBulletObject.layer = LayerMask.NameToLayer("Bullet");
 
     }
     

@@ -8,6 +8,13 @@ public class AirPlane : MonoBehaviour {
     private Gun[] guns;         //자신에 게 물린 건
 
 
+    private Transform shipModel;            //ShipModelTransform;
+
+    private float shipModelRoll;            //쉽모델 Roll 회전값
+    private float shipModelRollDir;         //쉽모델 롤방향 -1 이면 왼쪽  1 이면 오른쪽
+    private float shipModelMaxRoll = 45;    //최대 회전치
+
+
     void Awake()
     {
         //자신 뿐만 아니라 자신의 게임오브젝트 계층구조 자식으로 붙어있는 게임오브젝트
@@ -17,18 +24,49 @@ public class AirPlane : MonoBehaviour {
 
         //출생신고
         PlaneManager.Instance.AddPlane(this);
+
+        //바로 밑 자식의 갯수
+        int childCount = this.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            //i번째 자식의 이름을 얻는다.
+            string name = this.transform.GetChild(i).gameObject.name;
+
+            //해당 이름에 Model 이 포함되어있으면...
+            if (name.Contains("Model"))
+            {
+                this.shipModel = this.transform.GetChild(i);
+                break;
+            }
+
+        }
+        
+
     }
 
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+
+        //초당 30 의 값으로 Roll 회전
+        this.shipModelRoll += this.shipModelRollDir * Time.deltaTime * 30.0f;
+
+        this.shipModelRoll = Mathf.Clamp(this.shipModelRoll,
+            -this.shipModelMaxRoll,
+            this.shipModelMaxRoll);
+
+
+        this.shipModel.localRotation = Quaternion.Euler(0, 0, -shipModelRoll);
+
+
 	}
 
     
@@ -50,6 +88,13 @@ public class AirPlane : MonoBehaviour {
 
         //자신의 축기준으로 이동 시킨다.
         this.transform.Translate(moveVec);
+
+
+        //moveDir.x 좌우 이동
+        this.shipModelRollDir = moveDir.x;
+
+
+
     }
 
 
